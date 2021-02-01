@@ -1,0 +1,6 @@
+E:\C SHARP\BasicOperation\BasicOperation\bin\Debug\BasicOperation.exe.config
+E:\C SHARP\BasicOperation\BasicOperation\bin\Debug\BasicOperation.exe
+E:\C SHARP\BasicOperation\BasicOperation\bin\Debug\BasicOperation.pdb
+E:\C SHARP\BasicOperation\BasicOperation\obj\Debug\BasicOperation.csprojResolveAssemblyReference.cache
+E:\C SHARP\BasicOperation\BasicOperation\obj\Debug\BasicOperation.exe
+E:\C SHARP\BasicOperation\BasicOperation\obj\Debug\BasicOperation.pdb
