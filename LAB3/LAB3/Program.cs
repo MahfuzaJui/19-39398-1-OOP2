@@ -71,10 +71,10 @@ namespace LAB3
 
             Account account2 = new Account("JUI", "132-132-132-132", 40000);
 
-            account1.Deposit(1000);
+            account2.Deposit(1000);
             Console.WriteLine("Name: {0}\nAcid: {1}\nBalance: {2}\n", account2.AccName, account2.Acid, account2.Balance);
 
-            account1.Withdraw(300);
+            account2.Withdraw(300);
             Console.WriteLine("Name: {0}\nAcid: {1}\nBalance: {2}", account2.AccName, account2.Acid, account2.Balance);
 
             Console.WriteLine("\n");

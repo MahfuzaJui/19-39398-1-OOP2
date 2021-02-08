@@ -48,11 +48,11 @@ namespace LAB3
         {
             if (this.Balance < amount)
             {
-                Console.WriteLine("[Error]: Amount is higher than balance!!");
+                Console.WriteLine(" Amount is higher than balance!!");
             }
             else
             {
-                this.Balance += amount;
+                this.Balance -= amount;
             }
         }
     }

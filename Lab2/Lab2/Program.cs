@@ -18,15 +18,10 @@ namespace Lab2
             {
                 if (i % 2 == 0)
                 {
-                    if (i == n)
-                    {
-                        Console.Write(i);
-                    }
-                    else
-                    {
-                        Console.Write(i + ", ");
-                    }
-                }
+                 
+                    Console.Write(i + ", ");
+                 }
+                
             }
             Console.WriteLine("");
         }
