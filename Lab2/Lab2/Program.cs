@@ -13,6 +13,7 @@ namespace Lab2
         {
             int n = 100;
 
+
             Console.Write("Even Numbers: ");
             for (int i = 1; i <= n; i++)
             {
