@@ -13,20 +13,16 @@ namespace Lab2
         {
             int n = 100;
 
+
             Console.Write("Even Numbers: ");
             for (int i = 1; i <= n; i++)
             {
                 if (i % 2 == 0)
                 {
-                    if (i == n)
-                    {
-                        Console.Write(i);
-                    }
-                    else
-                    {
-                        Console.Write(i + ", ");
-                    }
-                }
+                 
+                    Console.Write(i + ", ");
+                 }
+                
             }
             Console.WriteLine("");
         }
