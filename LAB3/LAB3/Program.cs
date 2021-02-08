@@ -10,9 +10,7 @@ namespace LAB3
     {
         static void Main(string[] args)
         {
-            /**
-             * Student
-             */
+            
             Console.WriteLine(" Student ");
 
             Student student1 = new Student();
@@ -30,10 +28,7 @@ namespace LAB3
 
             Console.WriteLine("\n");
 
-            /**
-             * Triangle
-             */
-
+           
 
             Console.WriteLine("Triangle ");
 
@@ -57,9 +52,7 @@ namespace LAB3
 
             Console.WriteLine("\n");
 
-            /**
-             * Account
-             */
+           
 
             Console.WriteLine(" Account ");
 
@@ -87,9 +80,6 @@ namespace LAB3
             Console.WriteLine("\n");
 
 
-            /**
-             * Course
-             */
 
             Console.WriteLine(" Course ");
 
