@@ -33,20 +33,21 @@ namespace Array
             }
 
             Console.WriteLine();
-
+            //Array Reverse
             Console.WriteLine("Array in reverse order: ");
 
             for (i = n - 1; i >= 0; i--)
             {
                 Console.Write("{0} ", a[i]);
             }
+            //array Sum
             for (i = 0; i < n; i++)
             {
                 sum += a[i];
             }
-
+            
             Console.Write("\nSum of the array elements= {0}  ", sum);
-
+           //COPY ARRAY
             int[] a2 = new int[100];
             for (i = 0; i < n; i++)
             {
@@ -64,7 +65,7 @@ namespace Array
 
                 Console.Write("{0}  ", a2[i]);
             }
-
+           //DUPLICATE ELEMENTS COUNT
             int[] a3 = new int[100];
             int max = 0;
 
@@ -103,6 +104,7 @@ namespace Array
 
 
             }
+            // UNIQUE ELEMENTS
             Console.Write("\nThe unique elements found in the array are: \n");
             for (i = 0; i < n; i++)
             {
