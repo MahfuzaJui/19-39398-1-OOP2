@@ -47,11 +47,7 @@ namespace Array
             }
             
             Console.Write("\nSum of the array elements= {0}  ", sum);
-<<<<<<< HEAD
-            //COPY ARRAY
-=======
-           //COPY ARRAY
->>>>>>> 400e0c3d749d2a724bdafd63926b131758db79c3
+            //copy array
             int[] a2 = new int[100];
             for (i = 0; i < n; i++)
             {
@@ -69,11 +65,9 @@ namespace Array
 
                 Console.Write("{0}  ", a2[i]);
             }
-<<<<<<< HEAD
-            //DUPLICATE ELEMENTS COUNT
-=======
+
            //DUPLICATE ELEMENTS COUNT
->>>>>>> 400e0c3d749d2a724bdafd63926b131758db79c3
+
             int[] a3 = new int[100];
             int max = 0;
 
