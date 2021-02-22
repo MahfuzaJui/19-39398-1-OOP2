@@ -8,29 +8,30 @@ namespace Bank
 {
     class Overdraft : Account
     {
-        double overdraftLimit;
-
-        public Overdraft(double overdraftLimit)
-            : base()
+        public Overdraft(string name, string id, int balance)
         {
-            this.overdraftLimit = overdraftLimit;
+            Console.WriteLine("Overdraft has been created");
         }
-        public Overdraft(string name, int? accNo, double balance, double overdraftLimit)
-            : base(name, accNo, balance)
+      
+            new public void withdraw(int withdraw)
         {
-            this.overdraftLimit = overdraftLimit;
-        }
-
-        public override void Withdraw(double amount)
-        {
-            if (amount <= Balance + overdraftLimit)
+            if (withdraw > Balance)
             {
-                Balance -= amount;
+                int overdraft =  50000;
+                Balance += overdraft;
+
+                if (withdraw <= Balance)
+                {
+                    Balance -= withdraw;
+                    Console.WriteLine("Transaction Executed!!!");
+                    Console.WriteLine(overdraft);
+                }
+                else
+                    Console.WriteLine("Sorry transaction can't be completed because its exceed the limits of loan");
             }
             else
-            {
-                Console.WriteLine("Amount exceeds the limit!");
-            }
+                Balance -= withdraw;
+            Console.WriteLine("New Balance : " + Balance);
         }
     }
 }

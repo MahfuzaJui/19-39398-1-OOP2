@@ -8,50 +8,28 @@ namespace Bank
 {
     class Fixed : Account
     {
-        private int tenureYear;
+        public int year = DateTime.Now.Year;
 
-        public int TenureYear
+        public Fixed(string name, string id, int balance)
+            : base(name, id, balance)
         {
-            get { return tenureYear; }
-            set { tenureYear = value; }
-        }
-        private int openingYear;
-
-        public int OpeningYear
-        {
-            get { return openingYear; }
-            set { openingYear = value; }
+            Console.WriteLine("Fixed account created.");
         }
 
-        public Fixed()
+        new public void withdraw(int withdraw)
         {
-            Console.WriteLine("Empty Fixed Constructor.");
-        }
-        public Fixed(String accName, string accId, double balance, int tenureYear, int openingYear)
-            : base(accName, accId, balance)
-        {
-            this.tenureYear = tenureYear;
-            this.openingYear = openingYear;
-        }
 
-        public override void Withdraw(int amount)
-        {
-            if ((Int32.Parse(DateTime.Now.Year.ToString()) - openingYear) == tenureYear && amount <= Balance)
+            if (withdraw <= Balance)
             {
-                Balance -= amount;
-                Console.WriteLine("Withdraw amount : " + amount);
+                Balance = Balance - withdraw;
+                Console.WriteLine("Withdrawal Successful");
+                Console.WriteLine("New Balance " + Balance);
             }
             else
-                Console.WriteLine("Withdraw failed.");
-        }
-
-        public override void ShowInfo()
-        {
-            Console.WriteLine("Account Holder Name : " + AccountHolderName);
-            Console.WriteLine("Account ID : " + AccId);
-            Console.WriteLine("Balance : " + Balance);
+            {
+                Console.WriteLine("Balance is Less then " + withdraw);
+            }
 
         }
-
     }
 }

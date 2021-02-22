@@ -6,41 +6,29 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Saving : Account
+    class savings : Account
     {
-        private int limitOfMonthlyTransaction;
-
-        public int LimitOfMonthlyTransaction
+        public savings(string name, string id, int balance)
+            : base(name, id, balance)
         {
-            get { return limitOfMonthlyTransaction; }
-            set { limitOfMonthlyTransaction = value; }
-        }
-        public Saving()
-        {
-            Console.WriteLine("Empty savings Constructor.");
-        }
-        public Saving(String accName, string accId, double balance)
-            : base(accName, accId, balance)
-        {
-            this.limitOfMonthlyTransaction = 5;
+            Console.WriteLine("Account created.");
         }
 
-        public override void Withdraw(int amount)
+        new public void withdraw(int withdraw)
         {
-            if (amount <= (Balance - 1000))
+            if (withdraw >= 430)
             {
-                Balance -= amount;
+                if (withdraw <= Balance)
+                {
+                    Balance = Balance - withdraw;
+                    Console.WriteLine("Withdraw completed.");
+                    Console.WriteLine("New Balance: " + Balance);
+                }
+                else
+                    Console.WriteLine("Balance is less then" + withdraw);
             }
             else
-                Console.WriteLine("Withdraw failed.");
-        }
-
-        public override void ShowInfo()
-        {
-            Console.WriteLine("Account Holder Name : " + AccountHolderName);
-            Console.WriteLine("Account ID : " + AccId);
-            Console.WriteLine("Balance : " + Balance);
-
+                Console.WriteLine("Withdrawal failed,Not enough Balance");
         }
     }
 }

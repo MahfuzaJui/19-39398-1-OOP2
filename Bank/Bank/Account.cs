@@ -6,43 +6,110 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    abstract class Account
+    class Account
     {
-        public string AccountHolderName { get; set; }
-        public string AccId { get; set; }
-        public double Balance { get; set; }
+        string accName;
+        string acid;
+        int balance;
+        int amount;
+        Account acc;
+
+
+        public string AccName
+        {
+            set { accName = value; }
+            get { return accName; }
+        }
+        public string Acid
+        {
+            set { acid = value; }
+            get { return acid; }
+        }
+        public int Balance
+        {
+            set { balance = value; }
+            get { return balance; }
+        }
+        public int Amount
+        {
+            set { amount = value; }
+            get { return amount; }
+        }
+
+        public Account Acc
+        {
+            set { acc = value; }
+            get { return acc; }
+        }
+
         public Account()
         {
-            Console.WriteLine("Empty Student Constructor .");
+            
         }
-        public Account(string accName, string acId, double balance)
-        {
-            AccountHolderName = accName;
-            AccId = acId;
-            Balance = balance;
-        }
-        public void Deposit(int amount)
-        {
-            if (amount > 0)
-            {
-                Balance += amount;
-                Console.WriteLine("Deposite amount : " + amount);
-            }
-        }
-        abstract public void Withdraw(int amount);
 
-        public void Transfer(int amount, Account receiver)
+        public Account(string accName, string acid, int balance)
         {
-            if (amount < Balance)
+            Console.WriteLine("Account Created ");
+            this.accName = accName;
+            this.acid = acid;
+            this.balance = balance;
+        }
+
+        public void deposit(int amount)
+        {
+            if (balance > 0)
             {
-                Balance -= amount;
-                receiver.Balance += amount;
+                balance = balance + amount;
+                Console.WriteLine("After Deposite: " + balance);
             }
             else
-                Console.WriteLine("Transection failed .");
+            {
+                Console.WriteLine("Not Deposited.");
+            }
 
         }
-        abstract public void ShowInfo();
 
+        public void withdraw(int amount)
+        {
+            if (amount > 0 && amount <= balance)
+            {
+                balance = balance - amount;
+                Console.WriteLine("After Withdrawal: " + balance);
+            }
+            else
+            {
+                Console.WriteLine("Can not Withdraw.");
+            }
+        }
+
+
+        public void Transfer(int amount, Account acc)
+        {
+            if (amount > 0 && amount <= balance)
+            {
+
+
+                Console.WriteLine("Transferred amount:" + amount);
+                balance = balance - amount;
+                Console.WriteLine("Balance After Transfer:" + this.balance);
+                balance = balance + amount;
+                Console.WriteLine("Recieved amount:" + amount);
+
+            }
+            else
+                Console.WriteLine("Amount Exceeded");
+        }
+            
+        
+
+
+
+
+        public void  ShowInfo()
+        {
+            Console.WriteLine("Account Name : " + accName);
+            Console.WriteLine("ID : " + acid);
+            Console.WriteLine("Balance : " + balance);
+        }
     }
 }

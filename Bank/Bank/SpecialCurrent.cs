@@ -6,28 +6,34 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class SpecialCurrent : Account
+    class Special_current : Account
     {
-        public SpecialSavings(int MaxNumofTransaction) : base()
+        public Special_current(string name, string id, int balance)
+            : base(name, id, balance)
         {
-            this.MaxNumOfTransaction = MaxNumOfTransaction;
+            Console.WriteLine("Special current account created.");
         }
-        public SpecialSavings(string name, int? accNo, double balance, int MaxNumOfTransactions)
-            : base(name, accNo, balance)
+
+        new public void withdraw(int withdraw)
         {
-            this.MaxNumOfTransaction = MaxNumOfTransaction;
-        }
-        public override void Withdraw(double amount)
-        {
-            if (numOfTransaction <= MaxNumOfTransaction && Balance - amount >= amount * 10 / 100)
+            if (withdraw >= (Balance * 10) / 100)
             {
-                Balance -= amount;
-                numOfTransaction++;
+                if (withdraw <= Balance)
+                {
+                    Balance = Balance - withdraw;
+                    Console.WriteLine("Withdraw done");
+                    Console.WriteLine("New Balance " + Balance);
+                }
+                else
+                {
+                    Console.WriteLine("Balance is less than " + withdraw);
+                }
             }
             else
             {
-                Console.WriteLine("Given amount exceeds the minimum balance");
+                Console.WriteLine("Less than " + (Balance * 10) / 100);
             }
         }
+
     }
 }
