@@ -8,108 +8,60 @@ namespace Bank
 {
     class Account
     {
-        string accName;
-        string acid;
-        int balance;
-        int amount;
-        Account acc;
+        private string accName;
+        private string accid;
+        private int balance;
+        public Account() { }
 
+        public Account(string accName, string accid, int balance)
+        {
+            this.accName = accName;
+            this.accid = accid;
+            this.balance = balance;
+        }
 
         public string AccName
         {
             set { accName = value; }
             get { return accName; }
         }
-        public string Acid
+
+        public string Accid
         {
-            set { acid = value; }
-            get { return acid; }
+            set { accid = value; }
+            get { return accid; }
         }
+
         public int Balance
         {
             set { balance = value; }
             get { return balance; }
         }
-        public int Amount
+
+        public virtual void Deposit(int amount)
         {
-            set { amount = value; }
-            get { return amount; }
+            balance = balance + amount;
         }
 
-        public Account Acc
+        public virtual void Withdraw(int amount)
         {
-            set { acc = value; }
-            get { return acc; }
+            balance = balance - amount;
+        }
+        public virtual void Transfer(int amount, Account acc)
+        {
+            balance = balance - amount;
+            acc.Balance = acc.Balance + amount;
+            Console.WriteLine("Balance Transfered.");
         }
 
-        public Account()
+        public void ShowInfo()
         {
-            
-        }
-
-        public Account(string accName, string acid, int balance)
-        {
-            Console.WriteLine("Account Created ");
-            this.accName = accName;
-            this.acid = acid;
-            this.balance = balance;
-        }
-
-        public void deposit(int amount)
-        {
-            if (balance > 0)
-            {
-                balance = balance + amount;
-                Console.WriteLine("After Deposite: " + balance);
-            }
-            else
-            {
-                Console.WriteLine("Not Deposited.");
-            }
-
-        }
-
-        public void withdraw(int amount)
-        {
-            if (amount > 0 && amount <= balance)
-            {
-                balance = balance - amount;
-                Console.WriteLine("After Withdrawal: " + balance);
-            }
-            else
-            {
-                Console.WriteLine("Can not Withdraw.");
-            }
-        }
-
-
-        public void Transfer(int amount, Account acc)
-        {
-            if (amount > 0 && amount <= balance)
-            {
-
-
-                Console.WriteLine("Transferred amount:" + amount);
-                balance = balance - amount;
-                Console.WriteLine("Balance After Transfer:" + this.balance);
-                balance = balance + amount;
-                Console.WriteLine("Recieved amount:" + amount);
-
-            }
-            else
-                Console.WriteLine("Amount Exceeded");
-        }
-            
-        
-
-
-
-
-        public void  ShowInfo()
-        {
-            Console.WriteLine("Account Name : " + accName);
-            Console.WriteLine("ID : " + acid);
-            Console.WriteLine("Balance : " + balance);
+            Console.WriteLine();
+            Console.WriteLine("Account Name: {0}", this.AccName);
+            Console.WriteLine("Account ID: {0}", this.Accid);
+            Console.WriteLine("Account Balance: {0}", this.Balance);
+            Console.WriteLine("Account Type: {0}", this.GetType().ToString().Split('.')[1]);
+            Console.WriteLine();
         }
     }
 }

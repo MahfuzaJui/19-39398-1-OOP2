@@ -10,36 +10,61 @@ namespace Bank
     {
         static void Main(string[] args)
         {
-            Account a1 = new Account("JUI", "1234", 40000);
-            a1.ShowInfo();
-            a1.deposit(2000);
-            a1.withdraw(5000);
-            a1.Transfer(200, a1);
-            Console.WriteLine("\n");
-            Account a2 = new Account("MAHFUZA", "4321", 10000);
-            a2.ShowInfo();
-            a1.deposit(2000);
-            a1.withdraw(5000);
-            a2.Transfer(200, a1);
-            Console.WriteLine("\n");
-            savings s1 = new savings("SHARMILI", "12905", 1500);
-            s1.ShowInfo();
-            s1.withdraw(500);
-            Console.WriteLine("\n");
-            Special_current s2 = new Special_current("JUI", "3215", 35500);
-            s2.ShowInfo();
-            s2.withdraw(3000);
-            Console.WriteLine("\n");
-            Fixed f1 = new Fixed("HIA", "5664", 10000);
-            f1.ShowInfo();
-            f1.withdraw(3000);
             Console.WriteLine();
             Console.WriteLine("\n");
-            Overdraft o = new Overdraft("PROTIVA", "3429", 1000);
-            o.ShowInfo();
-            o.withdraw(200);
-            Console.WriteLine();
+            Console.WriteLine("          Savings         ");
+            Console.WriteLine("\n");
 
+            Savings s1 = new Savings("JUI", "1234", 5000);
+            Savings s2 = new Savings("MAHFUZA", "4321", 4000);
+            s1.Withdraw(500);
+            s1.Deposit(1000);
+            s1.Transfer(1000, s2);
+
+            s1.ShowInfo();
+            s2.ShowInfo();
+
+            Console.WriteLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("          Special         ");
+            Console.WriteLine("\n");
+
+            SpecialCurrent sc1 = new SpecialCurrent("SHARMILI", "1234", 5000);
+            SpecialCurrent sc2 = new SpecialCurrent("RINTY", "4321", 4000);
+            sc1.Withdraw(500);
+            sc1.Deposit(1000);
+            sc1.Transfer(5000, sc2);
+
+            sc1.ShowInfo();
+            sc2.ShowInfo();
+
+            Console.WriteLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("           Fixed          ");
+            Console.WriteLine("\n");
+
+            Fixed f1 = new Fixed("HIA", "1234", 5000, 4);
+            Fixed f2 = new Fixed("BRISTY", "4321", 4000, 3);
+            f1.Withdraw(500);
+            f1.Deposit(1000);
+            f1.Transfer(5000, f2);
+
+            f1.ShowInfo();
+            f2.ShowInfo();
+
+            Console.WriteLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("         OverDraft        ");
+            Console.WriteLine("\n");
+
+            OverDraft od1 = new OverDraft("JUI", "1234", 5000);
+            OverDraft od2 = new OverDraft("MAHFUZA", "4321", 4000);
+            od1.Withdraw(500);
+            od1.Deposit(1000);
+            od1.Transfer(5000, od2);
+
+            od1.ShowInfo();
+            od2.ShowInfo();
         }
     }
     }

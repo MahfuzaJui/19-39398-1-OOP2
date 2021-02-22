@@ -6,29 +6,43 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class savings : Account
+    class Savings : Account
     {
-        public savings(string name, string id, int balance)
-            : base(name, id, balance)
+        private int minBalance = 430;
+        public Savings() { }
+        public Savings(string accName, string accid, int balance) : base(accName, accid, balance) { }
+
+        public int MinBalance
         {
-            Console.WriteLine("Account created.");
+            get { return this.minBalance; }
         }
 
-        new public void withdraw(int withdraw)
+        public override void Withdraw(int amount)
         {
-            if (withdraw >= 430)
+            if (this.MinBalance < this.Balance - amount)
             {
-                if (withdraw <= Balance)
-                {
-                    Balance = Balance - withdraw;
-                    Console.WriteLine("Withdraw completed.");
-                    Console.WriteLine("New Balance: " + Balance);
-                }
-                else
-                    Console.WriteLine("Balance is less then" + withdraw);
+                base.Withdraw(amount);
             }
             else
-                Console.WriteLine("Withdrawal failed,Not enough Balance");
+            {
+                Console.WriteLine("[Error]: You've exceeded your minimum balance!!");
+                Console.WriteLine();
+            }
+        }
+
+        public override void Deposit(int amount) { base.Deposit(amount); }
+
+        public override void Transfer(int amount, Account acc)
+        {
+            if (this.MinBalance < base.Balance - amount)
+            {
+                base.Transfer(amount, acc);
+            }
+            else
+            {
+                Console.WriteLine("[Error]: You've exceeded your minimum balance!!");
+                Console.WriteLine();
+            }
         }
     }
 }

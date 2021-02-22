@@ -6,32 +6,51 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Overdraft : Account
+    class OverDraft : Account
     {
-        public Overdraft(string name, string id, int balance)
-        {
-            Console.WriteLine("Overdraft has been created");
-        }
-      
-            new public void withdraw(int withdraw)
-        {
-            if (withdraw > Balance)
-            {
-                int overdraft =  50000;
-                Balance += overdraft;
+        private int limit = 50000;
 
-                if (withdraw <= Balance)
-                {
-                    Balance -= withdraw;
-                    Console.WriteLine("Transaction Executed!!!");
-                    Console.WriteLine(overdraft);
-                }
-                else
-                    Console.WriteLine("Sorry transaction can't be completed because its exceed the limits of loan");
+        public OverDraft() { }
+        public OverDraft(string accName, string accid, int balance)
+            : base(accName, accid, balance)
+        {
+            base.Balance = balance + this.Limit;
+        }
+
+        public int Limit
+        {
+            get { return this.limit; }
+        }
+
+        public override void Withdraw(int amount)
+        {
+            if (this.Balance >= amount)
+            {
+                base.Withdraw(amount);
             }
             else
-                Balance -= withdraw;
-            Console.WriteLine("New Balance : " + Balance);
+            {
+                Console.WriteLine(" You've exceeded your minimum balance!!");
+                Console.WriteLine();
+            }
+        }
+
+        public override void Deposit(int amount)
+        {
+            base.Deposit(amount);
+        }
+
+        public override void Transfer(int amount, Account acc)
+        {
+            if (base.Balance >= amount)
+            {
+                base.Transfer(amount, acc);
+            }
+            else
+            {
+                Console.WriteLine(" You've exceeded your minimum balance!!");
+                Console.WriteLine();
+            }
         }
     }
 }
